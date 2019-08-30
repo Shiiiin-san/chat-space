@@ -1,0 +1,16 @@
+%div.mamu
+  %div.sub-menu
+    %div.sub-menu__my-profile
+      %p.sub-menu__my-mane
+        マイネーム
+      %ul.sub-menu__edit
+        %li.sub-menu__group-create
+          = link_to '' do
+            = icon('fas', 'edit')
+        %li.sub-menu__account-edit
+          = link_to '' do
+            = icon('fas', 'cog')
+
+    %div.sub-menu__group-list
+      - for num in 1..10
+        = render partial: "one_group"

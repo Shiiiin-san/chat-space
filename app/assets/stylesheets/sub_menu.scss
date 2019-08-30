@@ -1,0 +1,58 @@
+.sub-menu{
+  width: 300px;
+  float: left;
+  position: relative;
+  z-index: 2;
+
+  &__my-profile{
+    background-color: $dark_blue;
+    color: $white_character;
+    font-size: 16px;
+    box-sizing: border-box;
+    height: $header_hight;
+    padding: $sub_menu_pad;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  &__my-mane{
+    font-weight: bold;
+  }
+  &__edit{
+    display: flex;
+
+  }
+  &__group-create{
+    margin-left: 0.3rem;
+  }
+  &__account-edit{
+    margin-left: 0.3rem;
+  }
+  a{
+    color: inherit
+  }
+
+  &__group-list{
+    background-color: $navy_blue;
+    box-sizing: border-box;
+    height: calc(100vh - 100px);
+    width: 300px;
+    padding: $sub_menu_pad;
+    overflow: scroll;
+  }
+  &__group-list::-webkit-scrollbar{
+    display:none;
+  }
+  &__one-group{
+    padding: 20px 0 20px;
+  }
+  &__one-group-name{
+    color: $white_character;
+    font-size: 15px;
+    padding: 0 0 5px;
+  }
+  &__one-group-message{
+    color: $white_character;
+    font-size: 11px;
+  }
+}

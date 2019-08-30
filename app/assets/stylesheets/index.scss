@@ -1,0 +1,113 @@
+html, body {
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.main-manu{
+  width: calc(100vw - 300px);
+  min-height: 300px;
+  padding-left : 300px;
+  // position: fixed;
+
+
+  &__current-group{
+    border-bottom: thin solid #eeeeee;
+    box-sizing: border-box;
+    padding: $main_menu_pad;
+    height: $header_hight;
+    width: calc(100vw - 300px);
+  }
+  &__current-group-name{
+    color: #333333;
+    font-size: 20px;
+    padding: 35px 0 0;
+  }
+  &__current-group-member{
+    color: $light_gray;
+    font-size: 12px;
+    padding: 15px 0 0;
+  }
+  &__current-group-edit-btn{
+    color: $light_blue;
+    border: solid 1px $light_blue;
+    line-height: 40px;
+    height: 40px;
+    padding: 0 20px;
+    position: absolute;
+    top: 28px;
+    right: 40px;
+    margin: auto;
+  }
+  &__message{
+    background-color: #fafafa;
+    box-sizing: border-box;
+    padding-top: 6px;
+    padding: $main_menu_pad;
+    height: calc(100vh - 100px - 90px);
+    overflow: scroll;
+  }
+  &__message::-webkit-scrollbar{
+    display:none;
+  }
+  &__one-message{
+    background-color: #fafafa;
+    padding: 40px 0 0;
+  }
+  &__one-message-user{
+    display: flex;
+  }
+  &__one-message-name{
+    color: #434A54;
+    font-size: 16px;
+    font-weight: bold;
+  }
+  &__one-message-time{
+    color: $light_gray;
+    font-size: 12px;
+    padding: 0 0 0 10px;
+  }
+  &__one-message-detail{
+    color: #434A54;
+    font-size: 14px;
+    clear: none;
+    padding: 10px 0 0;
+  }
+  &__submission{
+    background-color: #ddd;
+    box-sizing: border-box;
+    padding: 20px 40px;
+    width: calc(100vw - 300px);
+    height: 90px;
+  }
+  &__submission-form{
+    display: flex;
+    justify-content: space-between;
+  }
+  &__submission-form-box{
+    width: 100%;
+    position: relative;
+  }
+  &__submission-form-text{
+    padding: 0 10px;
+    border: 0px;
+    height: 50px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  &__submission-form-image{
+    font-size: 1.4rem;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+  }
+  &__submission-form-image-upload{
+    display:none;
+  }
+  &__submission-form-submit{
+    background-color: $light_blue;
+    color: $white_character;
+    border: 0px;
+    margin-left: 15px;
+    padding: 0 30px;
+  }
+}
