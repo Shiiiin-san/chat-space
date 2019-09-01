@@ -1,5 +1,7 @@
 %div.sub-menu__one-group
-  %div.sub-menu__one-group-name
-    グループ１
-  %div.sub-menu__one-group-message
-    最新のメッセージ１
+  - current_user.groups.each do |group|
+    = link_to '#' do
+      %div.sub-menu__one-group-name
+        = group.room_name
+      %div.sub-menu__one-group-message
+        メッセージはまだありません。

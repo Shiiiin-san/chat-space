@@ -1,10 +1,13 @@
-@import "./reset";
+@import "./config/reset";
 
 @import "font-awesome-sprockets";
 @import "font-awesome";
 
-@import "_variable.scss";
+@import "./config/_variable.scss";
 
-@import "./group-create-alarm.scss";
-@import "./sub_menu";
-@import "./index";
+@import "modules/flash";
+@import "./modules/group-create-alarm.scss";
+@import "./modules/group";
+@import "./modules/user";
+@import "./modules/sub_menu";
+@import "./modules/index";
