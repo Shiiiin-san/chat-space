@@ -14,15 +14,14 @@
         Edit
 
   %div.main-manu__message
-    - for num in 1..10
-      = render partial: "one_message"
+    = render @messages
 
   %footer.main-manu__submission
-    %form.main-manu__submission-form-image-box{action: ''}
+    = form_for [@group, @message] do |f|
       %div.main-manu__submission-form
         %div.main-manu__submission-form-box
-          %input.main-manu__submission-form-text{type: "text", placeholder: "type a message"}
-            %label.main-manu__submission-form-image{for: "upload-icon"}
+          = f.text_field :content, class: 'main-manu__submission-form-text', placeholder: 'type a message' do
+            = f.label :image, class: 'main-manu__submission-form-image' do
               %i.far.fa-image
-              %input.main-manu__submission-form-image-upload#upload-icon{type: "file"}
-        %input.main-manu__submission-form-submit{type: "submit", value: "Send"}
+          = f.file_field :image, class: 'main-manu__submission-form-image-upload'
+      = f.submit 'Send', class: 'main-manu__submission-form-submit'

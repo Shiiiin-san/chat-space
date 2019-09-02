@@ -1,7 +1,7 @@
 %div.sub-menu__one-group
   - current_user.groups.each do |group|
-    = link_to '#' do
+    = link_to group_messages_path(group) do
       %div.sub-menu__one-group-name
         = group.room_name
       %div.sub-menu__one-group-message
-        メッセージはまだありません。
+        = group.show_last_message
