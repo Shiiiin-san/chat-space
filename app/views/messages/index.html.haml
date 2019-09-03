@@ -6,10 +6,13 @@
 
   %header.main-manu__current-group
     %div.main-manu__current-group-name
-      グループ名
-    %div.main-manu__current-group-member
-      Member
-    = link_to '' do
+      = @group.room_name
+    %ul.main-manu__current-group-member
+      Member:
+      - @group.users.each do |user_name|
+        %li.main-manu__current-group-member
+          = user_name.name
+    = link_to edit_group_path(@group.id) do
       %div.main-manu__current-group-edit-btn
         Edit
 
