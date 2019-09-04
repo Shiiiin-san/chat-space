@@ -36,12 +36,14 @@ $('#new_message').on('submit', function(e){
       var html = buildHTML(data);
       $('.main-manu__message').append(html)
       $('.main-manu__submission-form-text').val('')
-      
+
       var scroll = $('.main-manu__message')[0].scrollHeight;
-      $(`.main-manu__message`).animate({scrollTop: scroll}, 'fast');
+      $(`.main-manu__message`).animate({scrollTop: scroll}, 'fast')
+
+      $('.main-manu__submission-form-submit').removeAttr('disabled')
     })
     .fail(function(){
-      alert('error');
+      alert('コメントを入力してください');
     });
   });
 });
