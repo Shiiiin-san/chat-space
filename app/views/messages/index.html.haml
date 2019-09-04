@@ -23,8 +23,8 @@
     = form_for [@group, @message] do |f|
       %div.main-manu__submission-form
         %div.main-manu__submission-form-box
-          = f.text_field :content, class: 'main-manu__submission-form-text', placeholder: 'type a message' do
-            = f.label :image, class: 'main-manu__submission-form-image' do
-              %i.far.fa-image
+          = f.text_field :content, class: 'main-manu__submission-form-text', placeholder: 'type a message'
+          = f.label :image, class: 'main-manu__submission-form-image' do
+            %i.far.fa-image
           = f.file_field :image, class: 'main-manu__submission-form-image-upload'
       = f.submit 'Send', class: 'main-manu__submission-form-submit'
