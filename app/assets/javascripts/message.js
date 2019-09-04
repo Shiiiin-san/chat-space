@@ -1,8 +1,28 @@
 $(function(){
+  function buildHTML(message){
+    var html = `<div class = "main-manu__one-message">
+                  <ul class = "main-manu__one-message-user">
+                    <li class = "main-manu__one-message-name">
+                      ${message.name}
+                    </li>
+                    <li class = "main-manu__one-message-time">
+                      ${message.created_at}
+                    </li>
+                  </ul>
+                  <div class = "main-manu__one-message-detail">
+                      <p class = "main-manu__one-message-detail--content">
+                        ${message.content}
+                      </p>
+                    ${message.image}
+                  </div>
+                </div>`
+    return html;
+  }
+
+
 $('#new_message').on('submit', function(e){
   e.preventDefault();
   var formData = new FormData(this);
-  console.log(this)
   var url = $(this).attr('action');
   $.ajax({
       type: "POST",
@@ -13,10 +33,13 @@ $('#new_message').on('submit', function(e){
       contentType: false
     })
     .done(function(data){
-      // 成功の場合の処理
+      console.log(data);
+      var html = buildHTML(data);
+      $('.main-manu__message').append(html)
+      $('.main-manu__submission-form-text').val('')
     })
-    .fail({
-      // エラーの場合処理
+    .fail(function(){
+      alert('error');
     });
   });
 });
