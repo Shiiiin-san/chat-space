@@ -20,12 +20,13 @@ html, body {
   &__current-group-name{
     color: #333333;
     font-size: 20px;
-    padding: 35px 0 0;
+    padding: 35px 0 11px;
   }
   &__current-group-member{
     color: $light_gray;
     font-size: 12px;
-    padding: 15px 0 0;
+    padding: 0;
+    display: inline;
   }
   &__current-group-edit-btn{
     color: $light_blue;
@@ -79,12 +80,14 @@ html, body {
     width: calc(100vw - 300px);
     height: 90px;
   }
-  &__submission-form{
+  .new_message{
     display: flex;
     justify-content: space-between;
   }
-  &__submission-form-box{
+  &__submission-form{
     width: 100%;
+  }
+  &__submission-form-box{
     position: relative;
   }
   &__submission-form-text{

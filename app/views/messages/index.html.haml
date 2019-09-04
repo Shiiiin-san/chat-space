@@ -1,0 +1,30 @@
+%div.mamu
+
+= render partial: "sub_menu"
+
+%div.main-manu
+
+  %header.main-manu__current-group
+    %div.main-manu__current-group-name
+      = @group.room_name
+    %ul.main-manu__current-group-member
+      Member:
+      - @group.users.each do |user_name|
+        %li.main-manu__current-group-member
+          = user_name.name
+    = link_to edit_group_path(@group.id) do
+      %div.main-manu__current-group-edit-btn
+        Edit
+
+  %div.main-manu__message
+    = render @messages
+
+  %footer.main-manu__submission
+    = form_for [@group, @message] do |f|
+      %div.main-manu__submission-form
+        %div.main-manu__submission-form-box
+          = f.text_field :content, class: 'main-manu__submission-form-text', placeholder: 'type a message'
+          = f.label :image, class: 'main-manu__submission-form-image' do
+            %i.far.fa-image
+          = f.file_field :image, class: 'main-manu__submission-form-image-upload'
+      = f.submit 'Send', class: 'main-manu__submission-form-submit'

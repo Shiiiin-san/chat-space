@@ -1,0 +1,15 @@
+
+%div.sub-menu
+  %div.sub-menu__my-profile
+    %p.sub-menu__my-mane
+      = current_user.name
+    %ul.sub-menu__edit
+      %li.sub-menu__group-create
+        = link_to new_group_path do
+          = icon('fas', 'edit')
+      %li.sub-menu__account-edit
+        = link_to edit_user_path(current_user) do
+          = icon('fas', 'cog')
+
+  %div.sub-menu__group-list
+    = render partial: "./messages/one_group"
