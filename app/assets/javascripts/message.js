@@ -13,7 +13,7 @@ $(function(){
                       <p class = "main-manu__one-message-detail--content">
                         ${message.content}
                       </p>
-                    ${message.image}
+                      <img class = "main-manu__one-message-detail--image" src="${message.image}">
                   </div>
                 </div>`
     return html;
@@ -44,6 +44,7 @@ $('#new_message').on('submit', function(e){
     })
     .fail(function(){
       alert('コメントを入力してください');
+      $('.main-manu__submission-form-submit').removeAttr('disabled')
     });
   });
 });
