@@ -39,11 +39,15 @@ $('#new_message').on('submit', function(e){
       var scroll = $('.main-manu__message')[0].scrollHeight;
       $(`.main-manu__message`).animate({scrollTop: scroll}, 'fast')
 
-      $('#new_message')[0].reset();
+      $('.main-manu__submission-form-text').val('')
+      $('.main-manu__submission-form-image-upload').val('')
+      $('.main-manu__submission-form-submit').removeAttr('disabled')
     })
     .fail(function(){
       alert('コメントを入力してください');
-      $('#new_message')[0].reset();
+      $('.main-manu__submission-form-text').val('')
+      $('.main-manu__submission-form-image-upload').val('')
+      $('.main-manu__submission-form-submit').removeAttr('disabled')
     });
   });
 });
