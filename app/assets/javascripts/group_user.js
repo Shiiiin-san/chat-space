@@ -15,7 +15,6 @@ $(function() {
   }
   $("#user-search-field").on("keyup", function() {
     var input = $("#user-search-field").val();
-    console.log(input);
     $.ajax({
       type: 'GET',
       url: '/users',
@@ -23,7 +22,6 @@ $(function() {
       dataType: 'json'
     })
     .done(function(users) {
-      console.log(users)
       $("#user-search-result").empty();
       if (users.length !== 0) {
         users.forEach(function(user){
@@ -44,8 +42,6 @@ $(function() {
   $(document).on("click", ".chat-group-user__btn--add", function () {
     var new_member_id = $(this).attr("data-user-id")
     var new_member_name = $(this).attr("data-user-name")
-    console.log(new_member_id)
-    console.log(new_member_name)
     $(this).parent().remove();
     var html_member = `<div class='chat-group-user'>
                         <input name='group[user_ids][]' type='hidden' value='${new_member_id}'>
@@ -53,5 +49,8 @@ $(function() {
                         <a class='user-search-remove chat-group-user__btn chat-group-user__btn--remove js-remove-btn'>削除</a>
                       </div>`
     member_list.append(html_member);
+  })
+  $(document).on("click", ".chat-group-user__btn--remove", function () {
+    $(this).parent().remove();
   })
 });
