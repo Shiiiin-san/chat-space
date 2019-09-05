@@ -1,7 +1,6 @@
 $(function(){
   function buildHTML(message){
-    var img = null
-    message.image === null ? img = `` : img = `<img class = "main-manu__one-message-detail--image" src="${message.image}">`
+    var img = message.image ? `<img class = "main-manu__one-message-detail--image" src="${message.image}">` : '';
     var html = `<div class = "main-manu__one-message">
                   <ul class = "main-manu__one-message-user">
                     <li class = "main-manu__one-message-name">
@@ -40,11 +39,15 @@ $('#new_message').on('submit', function(e){
       var scroll = $('.main-manu__message')[0].scrollHeight;
       $(`.main-manu__message`).animate({scrollTop: scroll}, 'fast')
 
-      $('.main-manu__submission-form-submit')[0].reset();
+      $('.main-manu__submission-form-text').val('')
+      $('.main-manu__submission-form-image-upload').val('')
+      $('.main-manu__submission-form-submit').removeAttr('disabled')
     })
     .fail(function(){
       alert('コメントを入力してください');
-      $('.main-manu__submission-form-submit')[0].reset();
+      $('.main-manu__submission-form-text').val('')
+      $('.main-manu__submission-form-image-upload').val('')
+      $('.main-manu__submission-form-submit').removeAttr('disabled')
     });
   });
 });
