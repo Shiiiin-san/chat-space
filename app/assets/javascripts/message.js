@@ -1,25 +1,13 @@
 $(function(){
   function buildHTML(message){
+    var img = null
     if(message.image == null){
-      var html = `<div class = "main-manu__one-message">
-                  <ul class = "main-manu__one-message-user">
-                    <li class = "main-manu__one-message-name">
-                      ${message.name}
-                    </li>
-                    <li class = "main-manu__one-message-time">
-                      ${message.created_at}
-                    </li>
-                  </ul>
-                  <div class = "main-manu__one-message-detail">
-                      <p class = "main-manu__one-message-detail--content">
-                        ${message.content}
-                      </p>
-                  </div>
-                </div>`
-      return html;
+      img = ``
     }
     else{
-      var html = `<div class = "main-manu__one-message">
+      img = `<img class = "main-manu__one-message-detail--image" src="${message.image}">`
+    }
+    var html = `<div class = "main-manu__one-message">
                   <ul class = "main-manu__one-message-user">
                     <li class = "main-manu__one-message-name">
                       ${message.name}
@@ -32,13 +20,11 @@ $(function(){
                     <p class = "main-manu__one-message-detail--content">
                       ${message.content}
                     </p>
-                    <img class = "main-manu__one-message-detail--image" src="${message.image}">
+                    ${img}
                   </div>
                 </div>`
-      return html;
-    }
+      return html
   }
-
 
 $('#new_message').on('submit', function(e){
   e.preventDefault();
@@ -54,7 +40,6 @@ $('#new_message').on('submit', function(e){
     })
     .done(function(data){
       var html = buildHTML(data);
-      console.log(html)
       $('.main-manu__message').append(html)
       $('.main-manu__submission-form-text').val('')
 
