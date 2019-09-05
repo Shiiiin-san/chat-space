@@ -40,11 +40,11 @@ $('#new_message').on('submit', function(e){
       var scroll = $('.main-manu__message')[0].scrollHeight;
       $(`.main-manu__message`).animate({scrollTop: scroll}, 'fast')
 
-      $('.main-manu__submission-form-submit')[0].reset();
+      $('#new_message')[0].reset();
     })
     .fail(function(){
       alert('コメントを入力してください');
-      $('.main-manu__submission-form-submit')[0].reset();
+      $('#new_message')[0].reset();
     });
   });
 });
