@@ -20,7 +20,7 @@
     = render @messages
 
   %footer.main-manu__submission
-    = form_for [@group, @message] do |f|
+    = form_for [@group, @message], id: 'new__message' do |f|
       %div.main-manu__submission-form
         %div.main-manu__submission-form-box
           = f.text_field :content, class: 'main-manu__submission-form-text', placeholder: 'type a message'
