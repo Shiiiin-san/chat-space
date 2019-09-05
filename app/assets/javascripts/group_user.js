@@ -5,7 +5,7 @@ $(function() {
   function appendUser(user) {
     var html = `<div class="chat-group-user clearfix">
                   <p class="chat-group-user__name">${user.name}</p>
-                  <div class="user-search-add chat-group-user__btn chat-group-user__btn--add" data-user-id="ユーザーのid" data-user-name="ユーザー名">追加</div>
+                  <a class="user-search-add chat-group-user__btn chat-group-user__btn--add" data-user-id="${user.id}" data-user-name="${user.name}">追加</a>
                 </div>`
     user_list.append(html);
   }
@@ -38,4 +38,17 @@ $(function() {
       alert('ユーザー検索に失敗しました');
     })
   });
+  $(document).on("click", ".chat-group-user__btn--add", function () {
+    var new_member_id = $(this).attr("data-user-id")
+    var new_member_name = $(this).attr("data-user-name")
+    console.log(new_member_id)
+    console.log(new_member_name)
+    $(this).parent().remove();
+    // $.ajax({
+    //   type: 'GET',
+    //   url: '/users',
+    //   data: { keyword: input },
+    //   dataType: 'json'
+    // })
+  })
 });
