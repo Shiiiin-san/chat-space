@@ -36,7 +36,6 @@ $('#new_message').on('submit', function(e){
     .done(function(data){
       var html = buildHTML(data);
       $('.main-manu__message').append(html)
-      $('.main-manu__submission-form-text').val('')
 
       var scroll = $('.main-manu__message')[0].scrollHeight;
       $(`.main-manu__message`).animate({scrollTop: scroll}, 'fast')
