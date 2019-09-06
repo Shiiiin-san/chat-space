@@ -17,7 +17,18 @@
         Edit
 
   %div.main-manu__message
-    = render @messages
+    - @messages.each do |message|
+      %div.main-manu__one-message{data: {message_num: "#{message.id.to_i}", group_num: "#{message.group_id.to_i}"} }
+        %ul.main-manu__one-message-user
+          %li.main-manu__one-message-name
+            = message.user.name
+          %li.main-manu__one-message-time
+            = message.created_at.strftime("%Y/%m/%d %H:%M")
+        %div.main-manu__one-message-detail
+          - if message.content.present?
+            %p.main-manu__one-message-detail--content
+              = message.content
+          = image_tag message.image.url, class: 'main-manu__one-message-detail--image' if message.image.present?
 
   %footer.main-manu__submission
     = form_for [@group, @message], id: 'new__message' do |f|

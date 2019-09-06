@@ -1,7 +1,7 @@
 $(function(){
   function buildHTML(message){
     var img = message.image ? `<img class = "main-manu__one-message-detail--image" src="${message.image}">` : '';
-    var html = `<div class = "main-manu__one-message" data-id="${message.id}">
+    var html = `<div class = "main-manu__one-message" data-message-num = "${message.id}", data-group-num = "${message.group_id}">
                   <ul class = "main-manu__one-message-user">
                     <li class = "main-manu__one-message-name">
                       ${message.name}
@@ -50,27 +50,27 @@ $('#new_message').on('submit', function(e){
       $('.main-manu__submission-form-submit').removeAttr('disabled')
     });
   });
-
-  var reloadMessages = function() {
-    //カスタムデータ属性を利用し、ブラウザに表示されている最新メッセージのidを取得
-    var last_message_id = $(".main-manu__one-message").data("one_message")
-
-    $.ajax({
-      //ルーティングで設定した通り/groups/id番号/api/messagesとなるよう文字列を書く
-      url: "/api/messages",
-      type: 'get',
-      dataType: 'json',
-      data: {id: last_message_id}
-    })
-    .done(function(messages) {
-      messages.forEach(function(message){
-        var insertHTML = buildHTML(message)
-        $('.main-manu__message').append(insertHTML)
+  if($(".main-manu__message").lenght != 0){
+    var reloadMessages = function() {
+      var last_message_id = $(".main-manu__one-message:last").data('messageNum');
+      var group_id = $(".main-manu__one-message").data('groupNum');
+      $.ajax({
+        url: "/groups/"+ group_id +"/api/messages",
+        type: 'get',
+        dataType: 'json',
+        data: {id: last_message_id}
       })
-    })
-    .fail(function() {
-      console.log('error');
-    });
+      .done(function(messages) {
+        messages.forEach(function(message){
+          var insertHTML = buildHTML(message)
+          $('.main-manu__message').append(insertHTML)
+          var scroll = $('.main-manu__message')[0].scrollHeight;
+          $(`.main-manu__message`).animate({scrollTop: scroll}, 'fast')
+        })
+      })
+      .fail(function() {
+      });
+    };
   };
   setInterval(reloadMessages, 5000);
-});
+})
