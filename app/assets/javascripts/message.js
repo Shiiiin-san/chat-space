@@ -50,8 +50,8 @@ $('#new_message').on('submit', function(e){
       $('.main-manu__submission-form-submit').removeAttr('disabled')
     });
   });
-  if($(".main-manu__message").lenght != 0){
-    var reloadMessages = function() {
+  var reloadMessages = function() {
+    if(document.URL.match(/messages/)) {
       var last_message_id = $(".main-manu__one-message:last").data('messageNum');
       var group_id = $(".main-manu__one-message").data('groupNum');
       $.ajax({
