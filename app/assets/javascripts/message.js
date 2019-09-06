@@ -55,7 +55,7 @@ $('#new_message').on('submit', function(e){
       var last_message_id = $(".main-manu__one-message:last").data('messageNum');
       var group_id = $(".main-manu__one-message").data('groupNum');
       $.ajax({
-        url: "/groups/"+ group_id +"/api/messages",
+        url: `/groups/${group_id}/api/messages`,
         type: 'get',
         dataType: 'json',
         data: {id: last_message_id}
