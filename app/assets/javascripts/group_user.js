@@ -15,6 +15,7 @@ $(function() {
   }
   $("#user-search-field").on("keyup", function() {
     var input = $("#user-search-field").val();
+    console.log(input)
     $.ajax({
       type: 'GET',
       url: '/users',
@@ -37,7 +38,7 @@ $(function() {
     })
   });
 
-  var member_list = $(".js-chat-member");
+  var member_list = $(".js-add-user");
 
   $(document).on("click", ".chat-group-user__btn--add", function () {
     var new_member_id = $(this).attr("data-user-id")
