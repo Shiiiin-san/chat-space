@@ -51,6 +51,6 @@ $(document).on('turbolinks:load', function(){
     member_list.append(html_member);
   })
   $(document).on("click", ".chat-group-user__btn--remove", function () {
-    $(this).parent().remove();
+    $(this).parent().parent().remove();
   })
 });
