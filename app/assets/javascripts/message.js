@@ -1,4 +1,4 @@
-$(function(){
+$(document).on('turbolinks:load', function(){
   function buildHTML(message){
     var img = message.image ? `<img class = "main-manu__one-message-detail--image" src="${message.image}">` : '';
     var html = `<div class = "main-manu__one-message" data-message-num = "${message.id}", data-group-num = "${message.group_id}">
