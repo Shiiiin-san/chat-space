@@ -1,4 +1,4 @@
-%div.main-manu__one-message
+%div.main-manu__one-message{data: {one_message: "#{message.id.to_i}", one_group: "#{message.group_id.to_i}"} }
   %ul.main-manu__one-message-user
     %li.main-manu__one-message-name
       = message.user.name
