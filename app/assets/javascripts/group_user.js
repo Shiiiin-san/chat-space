@@ -43,10 +43,11 @@ $(document).on('turbolinks:load', function(){
     var new_member_id = $(this).attr("data-user-id")
     var new_member_name = $(this).attr("data-user-name")
     $(this).parent().remove();
-    var html_member = `<div class='chat-group-user'>
+    var html_member = `<div class='chat-group-user clearfix js-chat-member'>
                         <input name='group[user_ids][]' type='hidden' value='${new_member_id}'>
-                        <p class='chat-group-user__name'>${new_member_name}</p>
-                        <a class='user-search-remove chat-group-user__btn chat-group-user__btn--remove js-remove-btn'>削除</a>
+                        <p>${new_member_name}
+                          <a class='user-search-remove chat-group-user__btn chat-group-user__btn--remove js-remove-btn'>削除</a>
+                        </p>
                       </div>`
     member_list.append(html_member);
   })
